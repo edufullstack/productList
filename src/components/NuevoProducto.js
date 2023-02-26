@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { crearNuevoProductoAction } from '../redux/actions/productoActions'
 import { useNavigate } from 'react-router-dom'
+import {
+  mostrarAlerta,
+  ocultarAlertaAction,
+} from '../redux/actions/alertaActions'
 
 const NuevoProducto = () => {
   const dispatch = useDispatch()
@@ -11,6 +15,7 @@ const NuevoProducto = () => {
 
   const cargando = useSelector((state) => state.productos.loading)
   const error = useSelector((state) => state.productos.error)
+  const alerta = useSelector((state) => state.alerta.alerta)
 
   const enviarProducto = (producto) => {
     dispatch(crearNuevoProductoAction(producto))
@@ -19,8 +24,17 @@ const NuevoProducto = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     if (nombre.trim() === '' || precio <= 0) {
+      const alerta = {
+        mensaje: 'Please fill both camps',
+        classes: 'alert alert-danger text-center text-uppercase p3',
+      }
+
+      dispatch(mostrarAlerta(alerta))
+
       return
     }
+
+    dispatch(ocultarAlertaAction())
 
     enviarProducto({ nombre, precio })
 
@@ -39,13 +53,16 @@ const NuevoProducto = () => {
         <div className='card'>
           <div className='card-body'>
             <h2 className='text-center mb-4 font-weight-bold'>Add Product</h2>
+
+            {alerta ? <p className={alerta.classes}>{alerta.mensaje}</p> : null}
+
             <form onSubmit={handleSubmit}>
               <div className='form-group'>
                 <label>Product Name</label>
                 <input
                   type='text'
                   className='form-control'
-                  placeholder='Nombre Producto'
+                  placeholder='Product Name'
                   name='nombre'
                   value={nombre}
                   onChange={handleInputChange}
@@ -56,7 +73,7 @@ const NuevoProducto = () => {
                 <input
                   type='number'
                   className='form-control'
-                  placeholder='Precio Producto'
+                  placeholder='Product Price'
                   name='precio'
                   value={precio}
                   onChange={handleInputChangePrecio}

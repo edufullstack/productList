@@ -1,27 +1,12 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
-    },
-    {
-      "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
-    },
-    {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
+      "nombre": "Orange Juice",
+      "precio": "350",
       "id": 3
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Jugo de Fresa",
+      "nombre": "Strawberry Juice",
       "precio": "200",
       "id": 5
     },
@@ -36,13 +21,13 @@
       "id": 7
     },
     {
-      "nombre": "Jugo de pina",
-      "precio": 100,
+      "nombre": "Pineapple Juice",
+      "precio": "150",
       "id": 8
     },
     {
-      "nombre": "Jugo de Manzana",
-      "precio": 100,
+      "nombre": "Apple Juice",
+      "precio": "190",
       "id": 9
     },
     {
@@ -51,14 +36,19 @@
       "id": 10
     },
     {
-      "nombre": "Tostadas",
+      "nombre": "Toast",
       "precio": 55,
       "id": 11
     },
     {
-      "nombre": "Tostadas marisqueras",
-      "precio": 65,
-      "id": 12
+      "nombre": "Ice cream",
+      "precio": 23,
+      "id": 13
+    },
+    {
+      "nombre": "Avocado",
+      "precio": 30,
+      "id": 14
     }
   ]
 }

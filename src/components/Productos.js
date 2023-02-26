@@ -14,7 +14,7 @@ const Productos = () => {
       dispatch(obtenerProductosAction())
     }
     cargarProductos()
-  })
+  }, [dispatch])
 
   return (
     <>
